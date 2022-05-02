@@ -9,12 +9,25 @@ public class Exercicio1 {
         DecimalFormat df = new DecimalFormat("#.00");
         double soma = 0;
 
+
         List lista = Arrays.asList(valores);
 
         for (int j = 0; j < lista.size(); j++) {
             soma += valores[j];
         }
 
-        System.out.printf("Remessa gerada: 1 cujo valor é R$ " +df.format(valores[0])+ ", 2 cujo valor é R$ " +df.format(valores[1])+ ", 3 cujo valor é R$ " +df.format(valores[2])+ ",\n4 cujo valor é R$ " +df.format(valores[3])+ " e 5 cujo valor é R$ " +df.format(valores[4])+ ". Total = " +df.format(soma)+".");
+        System.out.printf("Remessa gerada: ");
+
+        for (int k=0; k < lista.size(); k++) {
+            System.out.printf(k+1 + " cujo valor é R$ " + df.format(valores[k]));
+            if (k == lista.size()-1)
+                break;
+            if (k < lista.size()-2) {
+                System.out.printf(", ");
+            } else {
+                System.out.printf(" e ");
+            }
+        }
+        System.out.printf(". Total = " + df.format(soma) + ".");
     }
 }
